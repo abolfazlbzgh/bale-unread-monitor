@@ -1,0 +1,17 @@
+# Node & Package Managers
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# WXT specific auto-generated folders
+.output/
+.wxt/
+
+# Build outputs
+dist/
+build/
+
+# OS specific files
+.DS_Store
+Thumbs.db
