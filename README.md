@@ -2,6 +2,8 @@
 
 Never miss an important message on Bale again. **Bale Unread Monitor** is a lightweight, privacy-first Chrome extension that silently monitors your open Bale web client (web.bale.ai) and instantly forwards new message alerts directly to your personal Telegram account.
 
+**[Install Bale Unread Monitor from the Chrome Web Store](https://chromewebstore.google.com/detail/bale-unread-monitor/ophlefinlkcegcfbbclcoeeeeagkkble)**
+
 ## **✨ Key Features**
 
 - **🔒 100% Private & Secure (Zero Tracking):** No middlemen, no databases, and no analytics. The extension runs entirely in your local browser and communicates _directly_ with the official Telegram API.
