@@ -4,7 +4,7 @@ export default defineConfig({
   modules: ['@wxt-dev/auto-icons'],
   autoIcons: {
     baseIconPath: 'assets/icon.png',
-    developmentIndicator: false, // <--- ADD THIS LINE TO DISABLE GRAYSCALE
+    developmentIndicator: false,
   },
   runner: {
     disabled: true,
@@ -12,7 +12,7 @@ export default defineConfig({
   manifest: {
     name: 'Bale Unread Monitor',
     description: 'Monitors unread messages and sends Telegram alerts.',
-    version: '1.0.0',
+    "version": "1.0.1",
     permissions: ['storage'],
     host_permissions: ['https://api.telegram.org/*'],
   },
