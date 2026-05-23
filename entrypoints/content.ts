@@ -8,6 +8,7 @@ const CONFIG = {
     userName: '.oUKPfP',
     badge: 'span[aria-label="count-badge-text"]',
     messageEl: '.aqFHpt',
+    mutedIcon: '[aria-label="muted"]',
   },
   attributes: {
     messageAttr: 'title',
@@ -39,7 +40,7 @@ export default defineContentScript({
      */
     function getChatData() {
       const chatItems = document.querySelectorAll(CONFIG.selectors.chatItem);
-      const data: { name: string; count: number; message: string }[] = [];
+      const data: { name: string; count: number; message: string; isMuted: boolean }[] = [];
 
       chatItems.forEach((item) => {
         const nameEl = item.querySelector(CONFIG.selectors.userName);
@@ -50,6 +51,8 @@ export default defineContentScript({
           ? parseInt((badgeSpan as HTMLElement).innerText.trim(), 10) || 0
           : 0;
 
+        const isMuted = Boolean(item.querySelector(CONFIG.selectors.mutedIcon));
+
         const messageEl = item.querySelector(CONFIG.selectors.messageEl);
         let message = '';
 
@@ -59,6 +62,7 @@ export default defineContentScript({
             const isTyping =
               rawMessage.toLowerCase().includes(CONFIG.keywords.typingEn) ||
               rawMessage.includes(CONFIG.keywords.typingFa);
+
             if (!isTyping) {
               message = rawMessage;
             }
@@ -66,7 +70,7 @@ export default defineContentScript({
         }
 
         if (name !== 'Unknown') {
-          data.push({ name, count, message });
+          data.push({ name, count: isMuted ? 0 : count, message, isMuted });
         }
       });
 
